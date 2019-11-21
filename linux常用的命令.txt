@@ -1,0 +1,82 @@
+﻿1.查看进程：
+	jps
+	ps -ef | grep + nginx(进程名字)
+2.进入： cd + 文件夹
+  返回上一级：cd ..
+  返回上两级:cd ../..
+  返回上次所在的目录: cd -
+  返回家目录：cd
+3.显示：
+	./ ：当前目录
+	ls ：查看文件的目录
+	ls -a ： 显示隐藏文件
+	pwd : 查看文件的路径
+	su - :切换到root权限
+4.登录mysql
+	mysql -uroot -p
+5.创建文件夹
+	mkdir + 文件夹名字
+  更改文件夹的权限
+	chmod 777 + 文件夹所在的目录(可以使用所有权限)
+5.创建一个文件
+	touch + 文件名字
+  编辑文件
+	vim + 文件的名字
+  插入：i ; 退出： Esc
+  保存文本：shift + :    命令：wq
+  直接退出：q
+  强制退出：q!
+  保存并强制退出：wq!
+6.删除
+	rm -f + 文件或者文件夹的名字
+	rm -rf + 文件或者文件夹的名字
+7.解压压缩包
+	unzip + 文件压缩包.zip -d + 目录   # -d指定路径
+	tar -xvzf + 文件压缩包.tar -d + 目录 
+8.查看文件的内容
+	less/more/cat/tail/head +文件的名字
+        tail -f 文件名
+9.查看虚拟机的版本
+	uname -a；
+10.创建普通用户和密码
+	useradd ldh；   passwd ldh；
+11.linux下安装gcc(c或者c++)命令：
+	yum install gcc
+    yum install gcc-c++ libstdc++-devel	
+12.上传文件
+	rz + 文件/文件夹/压缩包
+   下载文件
+   sz + 文件/文件夹/压缩包
+13.直接网上下载文件 wget
+	git clone + http://
+14.复制文件： cp file1 file2
+   复制目录： cp -a dir1 dir2
+15.移动一个目录：mv dir1 dir2(不同目录)
+   重命名一个目录: mv dir1 newdir1(同一目录)'
+16.查询文件:
+	find 文件/文件夹名字
+	whereis 文件/文件夹
+17.yum安装器
+	yum -y install [package] 下载并安装rpm包
+	yum -y update 更新当前系统中安装的所有rmp包
+	yum update [package] 更新一个rpm包
+	yum remove [package] 删除一个rpm包
+	yum list 列出当前系统中安装的所有包
+18.网络相关
+   配置网卡的ip地址
+	ifconfig eth0 192.168.1.1 netmask 255.255.255.0
+   显示一个以太网卡的配置
+    ifconfig eth0
+   显示网卡的IP地址
+	ip addr show
+19.	./nginx 开启
+   	./nginx -s stop 停止
+   	./nginx -s quit
+   	./nginx -s reload  重启
+查看进程:  ps -ef | grep nginx
+20. jps -l
+21.   51(root;jiu123123)同步到126(root;123123)上命令:
+51(root;jiu123123)同步到126(root;123123)上命令:
+rsync -av /var/lib/jenkins/workspace/data-factory-font-end/dist 
+172.16.20.126:/root/sjgc_01/dist --delete
+22.chmod u+x h2Server.sh  改可执行权限
