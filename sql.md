@@ -23,17 +23,27 @@ INSERT INTO cjd_student ('学号', '姓名','出生日期', '性别') VALUES ('2
 ('201910','陈金栋','1993-03-08 00:00:00.000000','');
 ```
 > 列名不要加引号，正常情况下列名都是英文
+
 2. 查询姓王的学生名单
 ```
 SELECT * FROM cjd_student WHERE 姓名 LIKE '王%'
 ```
 ![问题2的结果](./result/q2.png)
+
 3. 查询含李的学生名单
 ```
 SELECT * FROM cjd_student WHERE 姓名 LIKE '%李%'
 ```
 ![问题3的结果](./result/q3.png)
+
 4. 查询所有学生的学号、姓名、选课数、总成绩
+```
+SELECT cjd_score.`stu_id`,cjd_student.`stu_name`,cjd_score.`sore_num`,cjd_score.`core` 
+FROM cjd_score
+INNER JOIN cjd_student
+ON cjd_score.stu_id=cjd_student.stu_id;
+```
+![问题4的结果](./result/q4.png)
 5. 查询男生、女生的人数
 > 女生的数据
 ```
@@ -50,6 +60,7 @@ SELECT COUNT(性别) FROM cjd_student WHERE 性别='女'
 ALTER TABLE cjd_student CHANGE COLUMN 性别 stu_sex VARCHAR(5)
 ```
 ![修改列名](./result/changecolname.png)
+
 6. 查询不及格的课程并按课程号从大到小排列
 >  ```AS res```在对上次执行结果再次操作时
 ```
@@ -61,6 +72,7 @@ SELECT * FROM (SELECT * FROM cjd_score WHERE 成绩 >= 60) AS res ORDER BY 成�
 SELECT * FROM (SELECT * FROM cjd_score WHERE 成绩 >= 60) AS res ORDER BY 成绩+0 DESC
 ```
 ![问题6的结果](./result/q6.png)
+
 7. 计算7月份每天的手术量
 > 初始数据
 ![问题7的结果](./result/q7init.png)
@@ -69,5 +81,6 @@ SELECT * FROM (SELECT * FROM cjd_score WHERE 成绩 >= 60) AS res ORDER BY 成�
 SELECT COUNT(SUBSTRING(ope_date,6,2)) FROM cjd_operation WHERE SUBSTRING(ope_date,6,2)='07'
 ```
 ![问题7的结果](./result/q7.png)
+
 8. 在disease_course表中查询术前平均住院日(按天计算)
 手术时间-入院时间=术前住院时间，所有术前住院时间总和/人数(注：手术时间要对应上入院时间)
