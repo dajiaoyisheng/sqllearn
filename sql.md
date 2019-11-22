@@ -51,6 +51,23 @@ ALTER TABLE cjd_student CHANGE COLUMN 性别 stu_sex VARCHAR(5)
 ```
 ![修改列名](./result/changecolname.png)
 6. 查询不及格的课程并按课程号从大到小排列
+>  ```AS res```在对上次执行结果再次操作时
+```
+SELECT * FROM (SELECT * FROM cjd_score WHERE 成绩 >= 60) AS res ORDER BY 成绩 DESC
+```
+![问题6的结果](./result/q6str.png)
+> 其中100排在最后，这是因为 成绩 是 string 型，但存的是数值。```字段名上+0```
+```
+SELECT * FROM (SELECT * FROM cjd_score WHERE 成绩 >= 60) AS res ORDER BY 成绩+0 DESC
+```
+![问题6的结果](./result/q6.png)
 7. 计算7月份每天的手术量
+> 初始数据
+![问题7的结果](./result/q7init.png)
+- 先改个列名
+```
+SELECT COUNT(SUBSTRING(ope_date,6,2)) FROM cjd_operation WHERE SUBSTRING(ope_date,6,2)='07'
+```
+![问题7的结果](./result/q7.png)
 8. 在disease_course表中查询术前平均住院日(按天计算)
 手术时间-入院时间=术前住院时间，所有术前住院时间总和/人数(注：手术时间要对应上入院时间)
