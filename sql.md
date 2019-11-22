@@ -29,8 +29,19 @@ SELECT * FROM cjd_student WHERE 姓名 LIKE '王%'
 ```
 ![问题2的结果](./result/q2.png)
 3. 查询含李的学生名单
+```
+SELECT * FROM cjd_student WHERE 姓名 LIKE '%李%'
+```
+![问题3的结果](./result/q3.png)
 4. 查询所有学生的学号、姓名、选课数、总成绩
 5. 查询男生、女生的人数
+> 女生的数据
+```
+SELECT * FROM cjd_student WHERE 性别='女'
+```
+![问题5的结果](./result/q5_12.png)
+> 女生的数量
+![问题5的结果](./result/q5_2.png)
 6. 查询不及格的课程并按课程号从大到小排列
 7. 计算7月份每天的手术量
 8. 在disease_course表中查询术前平均住院日(按天计算)
