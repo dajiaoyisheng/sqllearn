@@ -41,7 +41,15 @@ SELECT * FROM cjd_student WHERE 性别='女'
 ```
 ![问题5的结果](./result/q5_12.png)
 > 女生的数量
+```
+SELECT COUNT(性别) FROM cjd_student WHERE 性别='女'
+```
 ![问题5的结果](./result/q5_2.png)
+- 将中文字段名改成英文的
+```
+ALTER TABLE cjd_student CHANGE COLUMN 性别 stu_sex VARCHAR(5)
+```
+![修改列名](./result/changecolname.png)
 6. 查询不及格的课程并按课程号从大到小排列
 7. 计算7月份每天的手术量
 8. 在disease_course表中查询术前平均住院日(按天计算)
