@@ -48,14 +48,57 @@ WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'
 - LIKE 通常与 % 一同使用，类似于一个元字符的搜索。
 - 你可以使用 AND 或者 OR 指定一个或多个条件。
 - 你可以在 DELETE 或 UPDATE 命令中使用 WHERE...LIKE 子句来指定条件。
-### 重命名表
+##### UNION
+> MySQL UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。
+```
+SELECT expression1, expression2, ... expression_n
+FROM tables
+[WHERE conditions]
+UNION [ALL | DISTINCT]
+SELECT expression1, expression2, ... expression_n
+FROM tables
+[WHERE conditions];
+```
+- expression1, expression2, ... expression_n: 要检索的列。
+- tables: 要检索的数据表。
+- WHERE conditions: 可选， 检索条件。
+- DISTINCT: 可选，删除结果集中重复的数据。默认情况下 UNION 操作符已经删除了重复数据，所以 DISTINCT 修饰符对结果没啥影响。
+- ALL: 可选，返回所有结果集，包含重复数据。
+##### 排序
+> 使用 MySQL 的 ORDER BY 子句来设定你想按哪个字段哪种方式来进行排序，再返回搜索结果。
+```
+SELECT field1, field2,...fieldN FROM table_name1, table_name2...
+ORDER BY field1 [ASC [DESC][默认 ASC]], [field2...] [ASC [DESC][默认 ASC]]
+```
+- 你可以使用任何字段来作为排序的条件，从而返回排序后的查询结果。
+- 你可以设定多个字段来排序。
+- 你可以使用 ASC 或 DESC 关键字来设置查询结果是按升序或降序排列。 默认情况下，它是按升序排列。
+- 你可以添加 WHERE...LIKE 子句来设置条件。
+##### GROUP BY
+> GROUP BY 语句根据一个或多个列对结果集进行分组。在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。
+```
+SELECT name, COUNT(*) FROM   employee_tbl GROUP BY name
+```
+##### 重命名表
 ```
 ALTER  TABLE student RENAME TO cjd_student
 ```
-### 删除表
+##### 删除表
 ```
 DROP TABLE table_name
 ```
+##### JOIN
+> 
+```
+SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a INNER JOIN tcount_tbl b ON a.runoob_author = b.runoob_author;
+```
+等同于
+```
+SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a, tcount_tbl b WHERE a.runoob_author = b.runoob_author;
+```
+- INNER JOIN（内连接,或等值连接）：获取两个表中字段匹配关系的记录。
+- LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录。
+- RIGHT JOIN（右连接）： 与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。
 ## 练习
 1. 向student表中插入3个学生的信息，要求其中1个学生没有性别
 ```
