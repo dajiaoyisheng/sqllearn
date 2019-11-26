@@ -1,5 +1,53 @@
-### 导入表
-> 手动导入
+### MySQL数据库
+#### SQL语句
+##### SELECT
+> 查询数据
+```
+SELECT column_name,column_name FROM table_name
+```
+- 查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分割，并使用WHERE语句来设定查询条件。
+- SELECT 命令可以读取一条或者多条记录。
+- 你可以使用星号（*）来代替其他字段，SELECT语句会返回表的所有字段数据
+- 你可以使用 WHERE 语句来包含任何条件。
+- 你可以使用 LIMIT 属性来设定返回的记录数。
+##### WHERE
+> 在 MySQL 数据表中读取指定的数据(使用主键来作为 WHERE 子句的条件查询是非常快速的)。
+```
+SELECT * from runoob_tbl  WHERE runoob_author LIKE '%COM'
+```
+- 你可以在 WHERE 子句中指定任何条件。
+- 你可以使用 AND 或者 OR 指定一个或多个条件。
+- WHERE 子句也可以运用于 SQL 的 DELETE 或者 UPDATE 命令。
+- WHERE 子句类似于程序语言中的 if 条件，根据 MySQL 表中的字段值来读取指定的数据。
+##### UPDATE
+> 修改或更新 MySQL 中的数据
+```
+UPDATE table_name SET field1=new-value1, field2=new-value2
+[WHERE Clause]
+```
+- 你可以同时更新一个或多个字段。
+- 你可以在 WHERE 子句中指定任何条件。
+- 你可以在一个单独表中同时更新数据。
+##### DELETE
+```
+DELETE FROM table_name [WHERE Clause]
+```
+- 如果没有指定 WHERE 子句，MySQL 表中的所有记录将被删除。
+- 你可以在 WHERE 子句中指定任何条件
+- 您可以在单个表中一次性删除记录。
+##### LIKE
+> 使用百分号 %字符来表示任意字符,如果没有使用百分号 %, LIKE 子句与等号 = 的效果是一样的。
+```
+SELECT field1, field2,...fieldN 
+FROM table_name
+WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'
+```
+- 你可以在 WHERE 子句中指定任何条件。
+- 你可以在 WHERE 子句中使用LIKE子句。
+- 你可以使用LIKE子句代替等号 =。
+- LIKE 通常与 % 一同使用，类似于一个元字符的搜索。
+- 你可以使用 AND 或者 OR 指定一个或多个条件。
+- 你可以在 DELETE 或 UPDATE 命令中使用 WHERE...LIKE 子句来指定条件。
 ### 重命名表
 ```
 ALTER  TABLE student RENAME TO cjd_student
