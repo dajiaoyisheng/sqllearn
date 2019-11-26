@@ -92,6 +92,7 @@ INNER JOIN cjd_student
 ON cjd_score.stu_id=cjd_student.stu_id;
 ```
 ![问题4的结果](./result/q4.png)
+
 5. 查询男生、女生的人数
 > 女生的数据
 ```
