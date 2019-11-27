@@ -79,6 +79,14 @@ ORDER BY field1 [ASC [DESC][默认 ASC]], [field2...] [ASC [DESC][默认 ASC]]
 ```
 SELECT name, COUNT(*) FROM   employee_tbl GROUP BY name
 ```
+##### ALTER
+> 修改数据表名或者修改数据表字段
+```
+ALTER TABLE testalter_tbl  DROP i
+```
+```
+ALTER TABLE testalter_tbl ADD i INT
+```
 ##### 重命名表
 ```
 ALTER  TABLE student RENAME TO cjd_student
